@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "FizzBuzz",
+    platforms: [
+        .macOS(.v10_15),
+    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
@@ -21,7 +24,7 @@ let package = Package(
             name: "FizzBuzz"),
         .testTarget(
             name: "FizzBuzzTests",
-            dependencies: ["FizzBuzz"]
+            dependencies: ["FizzBuzz", .product(name: "Testing", package: "swift-testing")]
         ),
     ]
 )
